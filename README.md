@@ -64,7 +64,20 @@ class Vehicle{
             isOccupied = occupied;
         }
         void calculateFee();
-        void display();
+        void display(){
+            cout << "Ma xe: " << vehicleID << endl;
+            cout << "Loai xe: " << vehicleType << endl;
+            cout << "Thoi gian vao: " << entryTime << endl;
+            cout << "Thoi gian do: " << parkingDuration << "gio" << endl;
+            cout << "Phi do: " << parkingFee << "VND" << endl;
+            cout << "Trang thai: ";
+            if(isOccupied){
+                cout << "Cho da duoc su dung" << endl;
+            }
+            else{
+                cout << "Cho con trong" << endl;
+            }
+        }
 }
 
 class ParkingLot{
@@ -76,7 +89,7 @@ class ParkingLot{
     public:
     ParkingLot(){
         parkID = 0;
-        size = "";
+        size = 'S';
         hasVehicle1 = False;
         hasVehicle2 = False;
         hasVehicle3 = False;
@@ -90,21 +103,20 @@ class ParkingLot{
     }
 
     bool addVehicle(const Vehicle &v){
-        if (!ttVehicle1) {
+        if(!hasVehicle1){
             vehicle1 = v;
             hasVehicle1 = true;
             return true;
         }
-         if (size == 'M' || size == 'L') {
-            if (!hasVehicle2) {
+        if(size == 'M' || size == 'L'){
+            if(!hasVehicle2){
                 vehicle2 = v;
                 hasVehicle2 = true;
                 return true;
             }
         }
-
-        if (size == 'L') {
-            if (!hasVehicle3) {
+        if(size == 'L'){
+            if(!hasVehicle3){
                 vehicle3 = v;
                 hasVehicle3 = true;
                 return true;
@@ -112,8 +124,40 @@ class ParkingLot{
         }
         return false;
     }
-    bool removeVehicle(int vID);
-    void displayLotInfo();
+    bool removeVehicle(int vID){
+        if(hasVehicle1 && vehicle1.getVehicleID() == vID){
+            hasVehicle1 = false;
+            return true;//báo xóa thành công và kết thúc hàm//
+        }
+        if(hasVehicle2 && vehicle2.getVehicleID() == vTD){
+            hasVehicle2 = false;
+            return true;
+        }
+        if(hasVehicle3 && vehicle3.getVehicleID() == vTD){
+            hasVehicle3 = false;
+            return true;
+        }
+        return false;
+    }
+    void displayLotInfo(){
+        cout << "Ma bai do xe: " << parkID << endl;
+        cout << "Kich thuoc bai: " << size << endl;
+        if(hasVehicle1){
+            cout << "Thong tin xe o bai do thu 1: " << endl;
+            vehicle1.display();
+        }
+        if(hasVehicle2){
+            cout << "Thong tin xe o bai do thu 2: " << endl;
+            vehicle2.display();
+        }
+        if(hasVehicle3){
+            cout << "Thong tin xe o bai do thu 3: " << endl;
+            vehicle3.display();
+        }
+        if(!hasVehicle1 && !hasVehicle2 && !hasVehicle3){
+            cout << "Bai do con trong!" << endl;
+        }
+    }
 }
 int main() {
 
