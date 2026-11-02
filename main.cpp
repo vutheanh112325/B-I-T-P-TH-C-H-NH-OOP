@@ -1,4 +1,3 @@
-'''cpp
 #include <iostream>
 using namespace std;
 class Vehicle{
@@ -163,4 +162,3 @@ class ParkingLot{
 int main() {
 
 }
-'''
