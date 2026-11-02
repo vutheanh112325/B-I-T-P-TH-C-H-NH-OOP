@@ -1,3 +1,4 @@
+'''cpp
 #include <iostream>
 using namespace std;
 class Vehicle{
@@ -78,7 +79,7 @@ class Vehicle{
                 cout << "Cho con trong" << endl;
             }
         }
-}
+};
 
 class ParkingLot{
     private:
@@ -158,7 +159,8 @@ class ParkingLot{
             cout << "Bai do con trong!" << endl;
         }
     }
-}
+};
 int main() {
 
 }
+'''
