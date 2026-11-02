@@ -4,10 +4,10 @@ class Vehicle{
     private:
         int vehicleID;
         string vehicleType;
-        int entryTime;//Giờ vào//
-        int parkingDuration;//Thời gian đã đỗ//
-        double parkingFee;//Phí đỗ//
-        bool isOccupied;//Trả về True/false, nếu là True là đã có xe ở vị trí đó//
+        int entryTime;
+        int parkingDuration;
+        double parkingFee;
+        bool isOccupied;
     public:
         Vehicle(){
             vehicleID = 0;
@@ -25,7 +25,7 @@ class Vehicle{
             parkingFee = fee;
             isOccupied = occupied;
         }
-        //Getters//
+        
         int getVehicleID(){
             return vehicleID;
         }
@@ -44,7 +44,7 @@ class Vehicle{
         bool getIsOccupied(){
             return isOccupied;
         }
-        //Setters//
+        
         void setVehicleID(int id){
             vehicleID = id;
         }
@@ -127,7 +127,7 @@ class ParkingLot{
     bool removeVehicle(int vID){
         if(hasVehicle1 && vehicle1.getVehicleID() == vID){
             hasVehicle1 = false;
-            return true;//báo xóa thành công và kết thúc hàm//
+            return true;
         }
         if(hasVehicle2 && vehicle2.getVehicleID() == vTD){
             hasVehicle2 = false;
